@@ -25,3 +25,7 @@ COPY server.conf /etc/openvpn/server.conf
 # ln -s /usr/share/easy-rsa/* ~/easy-rsa/
 
 COPY vars /usr/share/easy-rsa/vars
+
+COPY docker-entrypoint.sh /usr/local/bin/
+
+CMD ["docker-entrypoint.sh"]
