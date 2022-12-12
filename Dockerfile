@@ -8,6 +8,6 @@ COPY server.conf /etc/openvpn/server.conf
 
 COPY vars /usr/share/easy-rsa/vars
 
-COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
+COPY docker-entrypoint.sh /usr/bin/docker-entrypoint.sh
 
 ENTRYPOINT ["docker-entrypoint.sh"]
