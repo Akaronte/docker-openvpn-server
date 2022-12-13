@@ -6,10 +6,12 @@ services:
     # restart: always
     stdin_open: true
     tty: true
-    #volumes:
-    #  - ./pki:/usr/share/easy-rsa/pki
+    volumes:
+      - ./certs:/home/openvpn/
     cap_add:
       - NET_ADMIN
+    ports:
+      - 1194:1194/udp 
     networks:
       - internal_network
       - external_network
