@@ -1,0 +1,21 @@
+version: "3.8"
+services:
+  openvpn:
+    container_name: openvpn
+    image: openvpn
+    # restart: always
+    stdin_open: true
+    tty: true
+    #volumes:
+    #  - ./pki:/usr/share/easy-rsa/pki
+    cap_add:
+      - NET_ADMIN
+    networks:
+      - internal_network
+      - external_network
+
+networks:
+  external_network:
+    driver: bridge
+  internal_network:
+    internal: true

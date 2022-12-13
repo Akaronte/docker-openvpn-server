@@ -9,11 +9,13 @@ then
   echo "/usr/share/easy-rsa/pki directory exists."
 else
   export EASYRSA_BATCH=1
-        echo "/usr/share/easy-rsa/pki directory does not exist."
+  echo "/usr/share/easy-rsa/pki directory does not exist."
   cd /usr/share/easy-rsa/
   sh ./easyrsa init-pki
   sh ./easyrsa gen-dh
   sed 's/^RANDFILE /#&/' -i /usr/share/easy-rsa/openssl-easyrsa.cnf
+  sed 's/$ENV::EASYRSA_PKI/home\/openvpn/g' -i /usr/share/easy-rsa/openssl-easyrsa.cnf
+  cat /usr/share/easy-rsa/openssl-easyrsa.cnf
   sh ./easyrsa build-ca nopass
   sh ./easyrsa gen-req server nopass
   sh ./easyrsa sign-req server server batch

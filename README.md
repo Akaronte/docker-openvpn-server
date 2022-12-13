@@ -34,4 +34,7 @@ cp /usr/share/easy-rsa/pki/issued/server.crt /etc/openvpn/server.crt
 cp /usr/share/easy-rsa/pki/ca.crt /etc/openvpn/ca.crt
 
 
+
+docker run --rm --name openvpn -ti --cap-add=NET_ADMIN openvpn bash
+
 https://github.com/OpenVPN/easy-rsa/blob/master/easyrsa3/easyrsa
