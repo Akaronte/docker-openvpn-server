@@ -6,8 +6,8 @@ services:
     # restart: always
     stdin_open: true
     tty: true
-    #volumes:
-    #  - ./pki:/usr/share/easy-rsa/pki
+    volumes:
+      - ./certs:/usr/share/easy-rsa/pki
     cap_add:
       - NET_ADMIN
     networks:
